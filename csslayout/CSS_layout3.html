@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html>
+<header>
+     <!-- 两端固定，中间自适应 -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CSS布局</title>
+    <style type="text/css">
+    #container{
+        display: flex;
+        flex-direction: row;
+        border:1px solid;
+        margin:10px;
+        height:500px;
+        background: pink;
+    }
+    #middle{
+        flex: 1;
+        height: 100%;
+        background: darkgray;
+    }
+    #left{
+        width: 100px;
+        height: 100%;
+        background: black;
+    }
+    #right{
+        width: 100px;
+        height: 100%;
+        background: red;
+    }
+    </style>
+</header>
+<body id="body">
+    <div id="container">
+        <div id="left">child2</div>
+        <div id="middle">child1</div>
+        <div id="right">child3</div>
+    </div>
+</body>
+
+</html>

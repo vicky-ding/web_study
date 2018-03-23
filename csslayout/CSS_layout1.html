@@ -1,0 +1,43 @@
+<!DOCTYPE>
+<html>
+<header>
+     <!-- 两端固定，中间自适应 -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CSS布局</title>
+    <style type="text/css">
+    #container{
+      border:1px solid;
+      margin:10px;
+      height:500px;
+      background: pink;  
+      overflow: hidden;
+    }
+    #middle{
+        margin-left: 110px;
+        margin-right: 110px;
+        height: 100%;
+        background: darkgray;
+    }
+    #left{
+        float: left;
+        width: 100px;
+        height: 100%;
+        background: black;
+    }
+    #right{
+        width: 100px;
+        height: 100%;
+        background: red;
+        float:right;
+    }
+    </style>
+</header>
+<body id="body">
+    <div id="container">
+        <div id="left">child2</div>
+        <div id="right">child3</div>
+        <div id="middle">child1</div>
+    </div>
+</body>
+
+</html>
