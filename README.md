@@ -12,7 +12,7 @@ Show Lists
 
 2.JS基础效果
 --
-以下是一些JS特效的一些基本操作
+以下是一些JS特效的一些基本操作  
 [弹窗1](https://vicky-ding.github.io/web_study/Demo/tanChuan_1.html)    
 [弹窗2](https://vicky-ding.github.io/web_study/Demo/tanChuan_2.html)    
 [多选框](https://vicky-ding.github.io/web_study/Demo/checkBox.html)  
