@@ -4,4 +4,4 @@ Show Lists
 
 1.CSS经典定位
 ----
-  *[Demo1](http://htmlpreview.github.io/web_study/csslayout/CSS_layout1.html)
+[Demo1](http://htmlpreview.github.io/web_study/csslayout/CSS_layout1.html)
