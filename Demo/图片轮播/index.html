@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link href="style1.css" rel="stylesheet" type="text/css"> -->
+    <title>Document</title>
+    <!-- <script type="text/javascript" src="***.js"></script> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            position: relative;
+            margin: 20px auto;
+            width: 590px;
+            height: 470px;
+        }
+
+        #wrap .banner {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 2s;
+        }
+
+        #wrap .tab {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        #wrap .tab span {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            margin: 3px;
+            background: rgba(105, 105, 105, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #887B6E;
+        }
+
+        #wrap .tab span.on {
+            background: white;
+        }
+
+        #wrap .tab span:hover {
+            background: #E2CEB7;
+        }
+
+        #wrap .prev {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            width: 41px;
+            height: 60px;
+            cursor: pointer;
+            margin: auto;
+            line-height: 60px;
+            text-align: center;
+        }
+
+        #wrap .next {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            width: 41px;
+            height: 60px;
+            cursor: pointer;
+            line-height: 60px;
+            text-align: center;
+        }
+        .prev:hover, .next:hover {
+             background-color: rgba(0,0,0,0.8);
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="banner">
+            <div class="banner-img">
+                <img src="images/1.jpg" width="590" height="470" alt="轮播图1">
+            </div>
+        </div>
+
+        <div class="banner">
+            <div class="banner-img">
+                <img src="images/2.jpg" width="590" height="470" alt="轮播图2">
+            </div>
+        </div>
+
+        <div class="banner">
+            <div class="banner-img">
+                <img src="images/3.jpg" width="590" height="470" alt="轮播图3">
+            </div>
+        </div>
+
+        <div class="banner">
+            <div class="banner-img">
+                <img src="images/4.jpg" width="590" height="470" alt="轮播图4">
+            </div>
+        </div>
+
+        <div class="banner">
+            <div class="banner-img">
+                <img src="images/5.jpg" width="590" height="470" alt="轮播图5">
+            </div>
+        </div>
+
+        <div class="tab">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="prev"><</div>
+        <div class="next">></div>
+
+    </div>
+         <script>
+            var oBody = document.getElementsByTagName("body")[0];
+            var aBanner = document.getElementsByClassName("banner");
+            var aSpan = document.getElementsByTagName("span");
+            var oNext = document.getElementsByClassName("next")[0];
+            var Oprev = document.getElementsByClassName("prev")[0];
+            var Oon = document.getElementsByClassName("on")[0];
+            
+            //初始化，显示第一张图片，并且通过右下角小圆点背景变化显示
+            aBanner[0].style.opacity = "1";
+            //下面两种方法均可实现类名切换
+            // aSpan[0].className = "on";
+            aSpan[0].classList.toggle("on");
+
+            var num = 0;   
+            for (var i = 0; i < aSpan.length; i++) {
+                aSpan[i].index = i;
+                aSpan[i].onclick = function () {  //点击小圆点图片相对应的进行切换
+                    for (var j = 0; j < aSpan.length; j++) {
+                        num = this.index;
+                        aSpan[j].className = "";
+                        aBanner[j].style.opacity = "0";
+                    }
+                    aSpan[num].className = "on";
+                    aBanner[num].style.opacity = "1";
+                }
+                
+                //按下图片切换到后一张
+                oNext.onclick = function(){
+                for(var j = 0 ;j < aSpan.length; j++){
+                    if(aSpan[j].className == "on"){
+                        aSpan[j].className = "";
+                        aBanner[j].style.opacity = "0";
+                        j++;
+                        num++;
+                        if(j > 4){
+                            j = 0;
+                        }
+                    aSpan[j].className = "on";
+                    aBanner[j].style.opacity = "1";
+                    }
+                }
+                }
+                
+                //按下图片切换到前一张
+                Oprev.onclick = function(){  
+                    for(var j = 0 ;j < aSpan.length; j++){
+                        if(aSpan[j].className == "on"){
+                            aSpan[j].className = "";
+                            aBanner[j].style.opacity = "0";
+                            j--;
+                            num--;
+                            if(j < 0){
+                                j = 4;
+                            }
+                        aSpan[j].className = "on";
+                        aBanner[j].style.opacity = "1";
+                        }
+                        }
+                }  
+            }
+            
+            //利用setInterval()设置定时器
+
+            // function Time() {/*设置定时器运行的函数*/
+            //     num++;
+            //     if (num < 5) {
+            //         for (var j = 0; j < aSpan.length; j++) {
+            //             aSpan[j].className = "";
+            //             aBanner[j].style.opacity = "0";
+            //         }
+            //         aSpan[num].className = "on";
+            //         aBanner[num].style.opacity = "1";
+            //     }else {
+            //     num = -1;
+            //     }
+            // }
+
+            // clearInterval(timer);
+            // var timer = setInterval("Time()", 2000);/*调用定时器*/
+                
+            // oBody.onmouseover = function () {/*鼠标引入，清除定时器，轮播图停止*/
+            //     clearInterval(timer);
+            // };
+            // oBody.onmouseout = function () {/*鼠标移出，重新调用定时器，轮播图开始*/
+            // clearInterval(timer);
+            // timer = setInterval("Time()", 2000);
+            // };
+
+            //利用setTimeout()设置定时器
+            Time();
+            
+            function Time() {/*设置定时器运行的函数*/
+                num++;
+                if (num < 5) {
+                    for (var j = 0; j < aSpan.length; j++) {
+                        aSpan[j].className = "";
+                        aBanner[j].style.opacity = "0";
+                    }
+                    aSpan[num].className = "on";
+                    aBanner[num].style.opacity = "1";
+                }else {
+                num = -1;
+                }
+                
+                // t = setTimeout(function(){Time()},1000);
+                t = setTimeout("Time()",1000);
+
+                oBody.onmouseover = function () {/*鼠标引入，清除定时器，轮播图停止*/
+                    clearTimeout(t);
+                };
+                oBody.onmouseout = function () {/*鼠标移出，重新调用定时器，轮播图开始*/
+                     clearTimeout(t);
+                    //  t = setTimeout(function(){Time()},1000);
+                    t = setTimeout("Time()",1000);
+                };
+
+            }
+            
+                
+
+    </script>
+</body>
+
+</html>

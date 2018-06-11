@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function allCheck(objname){
+            var objnameList = document.getElementsByName(objname);
+            if (null != objnameList){
+                alert("全选操作");
+                for (var i=0;i<objnameList.length;i++){
+                    objnameList[i].checked = "checked";
+                }
+            }
+        }
+        function noneCheck(objname){
+            var objnameList = document.getElementsByName(objname);
+            if (null != objnameList){
+                alert("取消全选操作");
+                for (var i=0;i<objnameList.length;i++){
+                    objnameList[i].checked = "";
+                }
+            }
+        }
+        var checkAll=false;
+        function Check(objname){
+            var objnameList = document.getElementsByName(objname);
+            checkAll = !checkAll;
+            for (var i=0;i<objnameList.length;i++){
+                    objnameList[i].checked = checkAll;
+                }
+        }
+    </script>
+
+</head>
+<body>
+    <input type="checkbox" name="checkbox" value=1> 看书 <br />
+    <input type="checkbox" name="checkbox" value=2> 写字 <br />
+    <input type="checkbox" name="checkbox" value=3> 游泳 <br />
+    <input type="checkbox" name="checkbox" value=4> 跑步 <br />
+    <!-- <button onclick="allCheck('checkbox')">全选</button>
+    <button onclick="noneCheck('checkbox')">取消全选</button> -->
+    <button onclick="Check('checkbox')">全选/取消</button>
+</body>
+</html>

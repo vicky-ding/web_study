@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>日历</title>
+    <style>
+        .div1 {
+            margin: auto;
+            width: 425px;
+            height: 420px;
+            border: 1px solid gray;
+        }
+
+        .div2 {
+            width: 390px;
+            height: 390px;
+            margin: auto;
+            margin-top: 15px;
+        }
+
+        .div21 {
+            width: 220px;
+            height: 72px;
+            margin: auto;
+            line-height: 72px;
+        }
+
+        .div22 {
+            width: 355px;
+            height: 310px;
+            margin: auto;
+        }
+
+        #table1 {
+            width: 355px;
+            height: 20px;
+            border-spacing: 20px 23px;
+        }
+
+        #table2 {
+            width: 355px;
+            height: 20px;
+            line-height: 20px;
+            border-spacing: 20px 0px;
+        }
+        .active{
+            color: white;
+            background-color: dodgerblue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="div1">
+        <div class="div2">
+            <div class="div21">
+                <button onclick="pre()">上一月</button>
+                <text id="yearAndMon"></text>
+                <button onclick="next()">下一月</button>
+            </div>
+
+            <div class="div22">
+                <table id="table2">
+                    <tr>
+                        <td>日</td>
+                        <td>一</td>
+                        <td>二</td>
+                        <td>三</td>
+                        <td>四</td>
+                        <td>五</td>
+                        <td>六</td>
+                    </tr>
+                </table>
+
+                <table id="table1">
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var yearAndMon = document.getElementById("yearAndMon");
+        var month1 =[31,29,31,30,31,30,31,31,30,31,30,31];  
+        var month2 =[31,28,31,30,31,30,31,31,30,31,30,31];   
+
+        writeDate(year,month);
+
+        function writeDate(year,month){
+            yearAndMon.innerHTML = year + "年" + month + "月";
+            var str = date.setFullYear(year,month-1,1);
+            var w1 = date.getDay();
+            var monthDays = isRunnian(year);
+            var table = document.getElementById("table1");
+            var k=1;
+            for(var i=1;i<=6;i++){
+                var tri = table.insertRow();
+                for(var j=1;j<=7;j++){
+                    var tdi = tri.insertCell();
+                    if(i==1 && i*j < w1+1){
+                        tdi.innerHTML = "";
+                    }else{
+                        if(k>monthDays[month-1]){
+                            break;
+                        }else{
+                            tdi.innerHTML= k;
+                            k++;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        function pre(){
+            document.getElementById("table1").innerHTML="";
+            
+            if(month>1){
+                month = month - 1; 
+            }else{
+                year-- ;
+                month = 12;
+            }
+            // 向文档流输出当前年月
+            var yearAndMon = document.getElementById("yearAndMon");
+            yearAndMon.innerHTML = year + "年" + month + "月";
+            writeDate(year,month);
+        }
+
+        function next(){
+            document.getElementById("table1").innerHTML="";
+            if(month<12){
+                month = month + 1; 
+            }else{
+                year++ ;
+                month =1;
+            }      
+            // 向文档流输出当前年月
+            var yearAndMon = document.getElementById("yearAndMon");
+            yearAndMon.innerHTML = year + "年" + month + "月";
+            writeDate(year,month);
+        }
+
+        function isRunnian(year){
+            if ((year%4 == 0 || year%400==0) && year%100 !=0){
+                return month1;
+            }else{
+                return month2;
+            }
+        }
+
+    </script>
+
+
+</body>

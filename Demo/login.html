@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .head {
+            height: 63px;
+            border-bottom: 1px solid #d6dfea;
+            background: #eff4fa;
+        }
+        .menu {
+            float: right;
+            height: 100%;
+            margin-right: 20px;
+        }
+        .menu > li {
+            list-style: none;
+            height: 63px;
+            line-height: 63px;
+            display: inline-block;
+        }
+        .container {
+            display: flex;
+            width: 960px;
+            height: 500px;
+            margin: 32px auto;
+            background-image: url('https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/tg-chang1ea8a2.png');
+            background-repeat: no-repeat;
+            background-position: 120px;
+        }
+        .txt {
+            flex: 1;
+        }
+        .txt > h2 {
+            line-height: 26px;
+            margin-top: 80px;
+            margin-bottom: 15px;
+            font-size: 24px;
+            color: #6f95c8;
+        }
+        .login {
+            width: 334px;
+            height: 387px;
+            align-self: center;
+            border: 1px solid #eee;
+            border-radius: 5px;
+        }
+        .login-head {
+            height: 50px;
+            border-bottom: 1px solid #c0cdd9;
+            background: #f9fbfe;
+            display: flex;
+        }
+        .login-head > span {
+            display: block;
+            height: 50px;
+            flex: 1;
+            color: #999;
+            line-height: 50px;
+            text-align: center;
+        }
+        span.active {
+            color: #333;
+        }
+        .login-content {
+            text-align: center;
+        }
+        .login-content > p {
+            width: 284px;
+            margin: 20px auto;
+        }
+        input {
+            width: 232px;
+            height: 18px;
+            padding: 10px;
+            margin-top: 20px;
+            outline: none;
+            padding-right: 40px;
+        }
+        .tip {
+            height: 20px;
+            line-height: 20px;
+            text-align: left;
+        }
+        .tip > span {
+            vertical-align: middle;
+        }
+        .check {
+            width: 18px;
+            height: 18px;
+            margin-right: 5px;
+            display: inline-block;
+            border: 1px solid #333;
+        }
+        .btn {
+            width: 284px;
+            height: 40px;
+            margin: 0 auto;
+            color: #fff;
+            line-height: 40px;
+            margin-top: 30px;
+            background: #5a98de;
+        }
+        .footer {
+            position: fixed;
+            width: 100%;
+            height: 37px;
+            bottom: 0;
+            border-top: 1px solid #d6dfea;
+            background: #eff4fa;
+        }
+        .footer {
+            text-align: center;
+        }
+        .footer > ul > li {
+            display: inline-block;
+            height: 37px;
+            line-height: 37px;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <a href="#">
+            <img src="https://mail.qq.com/https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/logo/qqmail/qqmail_logo_default_70h206ff1.png" alt="">
+        </a>
+        <ul class="menu">
+            <li><a>基本版</a> |</li>
+            <li><a>English</a> |</li>
+            <li><a>手机版</a> |</li>
+            <li><a>企业邮箱</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="txt">
+            <h2>QQ邮箱，常联系！</h2>
+            <p>2500年前，人们飞鸽传书</p>
+            <p>182年前，莫尔斯发明了电报</p>
+            <p>49年前，第一封电子邮件发出</p>
+            <p>今天，QQ邮箱联系你、我、他</p>
+        </div>
+        <div class="login">
+            <div class="login-head">
+                <span>快速登录</span>
+                <span class="active">账号秘密登录</span>
+            </div>
+            <div class="login-content">
+                <p>
+                    <input type="text" placeholder="支持QQ号/邮箱/手机号登录">
+                    <input type="text" placeholder="密码">
+                </p>
+                <p class="tip">
+                    <span class="check"></span>
+                    <span>下次自动登录</span>
+                </p>
+                <div class="btn">登录</div>
+            </div>
+        </div>
+    </div>
+    <div class="container"></div>
+    <div class="footer">
+        <ul>
+            <li><a href="">服务条款</a></li>
+            <li><a href="">服务条款</a></li>
+            <li><a href="">服务条款</a></li>
+            <li><a href="">服务条款</a></li>
+            <li><a href="">服务条款</a></li>
+            <li><a href="">服务条款</a></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body onload="getNowTime()">
+    <p>下面是一个时钟</p>
+    <p id="clock" ></p>
+    <script>
+        function getNowTime(){
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById("clock").innerHTML = h + ":" + m + ":" + s ;
+            t=setTimeout(function (){getNowTime()},500);
+            
+        }
+        
+        // var t = setInterval("getNowTime()",500)
+        
+        function checkTime(v){
+            if (v < 10){
+                 v ="0"+v;
+            }
+            return v;
+        }
+
+        
+    </script>
+</body>
+</html>

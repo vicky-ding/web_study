@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹窗</title>
+    <style>
+        #myimg{
+            width:590px;
+            height:470px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #myimg:hover{
+            opacity: 0.7;
+        }
+        .modal {
+            display: none;
+            /* 默认隐藏 */
+            position: fixed;
+            /* 固定定位 */
+            z-index: 1;
+            /* 设置在顶层 */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+        }
+
+        .modalBody {
+            position: relative;
+            display: block;
+            /* max-width: 700px; */
+            background-color: #fefefe;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            height:80%;
+            margin:2% auto;
+            animation: animatetbottom 0.4s;
+            -webkit-animation: animatetbottom 0.4s;
+        }
+        #caption{
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        @keyframes animatetop {
+            from {top: -300px;opacity: 0}
+            to { top: 0; opacity: 1}
+        }
+
+        @-webkit-keyframes animatetop {
+            from { top: -300px;opacity: 0 }
+            to { top: 0; opacity: 1}
+        }
+        @keyframes animatetbottom {
+            from {bottom: -300px;opacity: 0}
+            to { bottom: 0; opacity: 1}
+        }
+
+        @-webkit-keyframes animatetbottom {
+            from { bottom: -300px;opacity: 0 }
+            to { bottom: 0; opacity: 1}
+        }
+        @media only screen and (max-width: 700px){
+            .modalBody {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <img id="myimg" src="images/2.jpg" alt="picture1" >
+    <div id="myModal" class="modal"> 
+        <span class="close">&times;</span>
+        <img class="modalBody" id="imgContent">
+        <div id="caption"></div>
+        </div>
+    </div>
+
+    <script>
+        var myimg = document.getElementById("myimg");
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+        var imgContent =document.getElementById("imgContent");
+        var caption = document.getElementById("caption");
+
+        myimg.onclick = function () {
+            modal.style.display = "block";
+            imgContent.src = this.src;
+            caption.innerHTML = this.alt;
+
+        }
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+    </script>
+
+</body>
